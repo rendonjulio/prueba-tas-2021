@@ -1,0 +1,17 @@
+.web-app-header
+{
+    background-color: var(--blue);
+    background-image:url("/assets/img/headerBackground.png");
+    color: var(--white);
+    height: 66px;
+    font-size: 15px;
+    font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+    vertical-align: middle;
+    line-height: 66px;
+}
+
+.header-nav-icon
+{
+    padding-left: 10px;
+    color: var(--white);
+}
