@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WebAppHeaderComponent } from './web-app-header/web-app-header.component';
 import { WebAppFooterComponent } from './web-app-footer/web-app-footer.component';
+import { WebAppShopComponent } from './web-app-shop/web-app-shop.component';
+import { WebAppCartComponent } from './web-app-cart/web-app-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WebAppHeaderComponent,
-    WebAppFooterComponent
+    WebAppFooterComponent,
+    WebAppShopComponent,
+    WebAppCartComponent
   ],
   imports: [
     BrowserModule,
