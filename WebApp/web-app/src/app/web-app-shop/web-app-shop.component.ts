@@ -26,6 +26,7 @@ export class WebAppShopComponent implements OnInit {
 
   async ngOnInit(){
     await this.loadDataFromServer();
+    this.products.forEach(p=>p.price = Number(p.price))
     this.filterProducts();
   }
 
@@ -34,13 +35,28 @@ export class WebAppShopComponent implements OnInit {
     this.filterProducts();
   }
 
+  onOrderChange(event:any){
+      this.orderByPriceDesending=event.target.value=="priceDesc"; 
+       this.filterProducts();
+  }
+
   async loadDataFromServer(){
     this.categories = await this.wepAppService.getCategoriesFromServer();
     this.products = await this.wepAppService.getProductsFromServer();
   }
 
   filterProducts() {
+    this.visibleProducts=this.products.filter(p=>p.name.toLowerCase().includes(this.nameInput.toLowerCase()));
     
+    if (this.orderByPriceDesending){
+      this.visibleProducts=this.visibleProducts.sort((p1,p2)=>p1.price>p2.price?1:-1);
+    }
+    else
+    {
+      this.visibleProducts=this.visibleProducts.sort((p1,p2)=>p1.price<p2.price?1:-1);
+    }
+    
+
   }
 
 }

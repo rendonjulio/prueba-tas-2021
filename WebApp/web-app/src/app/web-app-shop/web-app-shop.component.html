@@ -8,16 +8,33 @@
 
         <div class="web-app-filter col-md-12 row">
             <div class="col-md-3">
-                Producto
+                Product
                 <input type="search" class="form-control me-2" (keyup)="onNameInput($event)" >
+            </div>
+            <div class="col-md-3">
+                Order products  
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="webShopOrderBy" value="priceDesc" id="orderByPriceDesc" (change)="onOrderChange ($event)" >
+                    <label class="form-check-label" for="orderByPriceDesc">
+                      By price descending.
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="webShopOrderBy" value="priceAsc" id="orderByPriceAsc" (change)="onOrderChange ($event)" >
+                    <label class="form-check-label" for="orderByPriceAsc">
+                        By price ascending.
+                    </label>
+                </div>
+
             </div>
         </div>
 
         <div class="col-md-12">
             
             <h1>Products</h1>
-              <div *ngFor="let p of products">
-                {{p.name}}
+              <div *ngFor="let p of visibleProducts">
+                {{p.name}} {{p.price}} 
               </div>
         </div>
 
