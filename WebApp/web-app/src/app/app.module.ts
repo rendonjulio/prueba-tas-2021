@@ -7,6 +7,7 @@ import { WebAppHeaderComponent } from './web-app-header/web-app-header.component
 import { WebAppFooterComponent } from './web-app-footer/web-app-footer.component';
 import { WebAppShopComponent } from './web-app-shop/web-app-shop.component';
 import { WebAppCartComponent } from './web-app-cart/web-app-cart.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WebAppCartComponent } from './web-app-cart/web-app-cart.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

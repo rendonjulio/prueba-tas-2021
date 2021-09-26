@@ -4,14 +4,27 @@
     <div class="col-md-3">
     </div>
 
-    <div class="web-app-filter col-md-6 row">
-        <div class="col-md-3">
-            Producto
-            <input type="search" class="form-control me-2" (keyup)="onNameInput($event)" >
+    <div class=" col-md-6 row">
+
+        <div class="web-app-filter col-md-12 row">
+            <div class="col-md-3">
+                Producto
+                <input type="search" class="form-control me-2" (keyup)="onNameInput($event)" >
+            </div>
         </div>
+
+        <div class="col-md-12">
+            
+            <h1>Products</h1>
+              <div *ngFor="let p of products">
+                {{p.name}}
+              </div>
+        </div>
+
     </div>
     
     <div class="col-md-3">
+        
     </div>
 
 </div>
