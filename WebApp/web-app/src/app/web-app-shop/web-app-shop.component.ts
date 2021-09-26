@@ -14,7 +14,7 @@ export class WebAppShopComponent implements OnInit {
   visibleProducts: Product[]=[];
   selectedProduct:Product[]=[];
 
-  selectedCategories:Category[]=[];
+  selectedCategory:number = 0;
   categories: Category []=[];
   
   nameInput: string  = "";
@@ -40,6 +40,11 @@ export class WebAppShopComponent implements OnInit {
        this.filterProducts();
   }
 
+  onCategoryChange(event:any){
+    this.selectedCategory = Number(event.target.value);
+    this.filterProducts();
+  }
+
   async loadDataFromServer(){
     this.categories = await this.wepAppService.getCategoriesFromServer();
     this.products = await this.wepAppService.getProductsFromServer();
@@ -47,6 +52,11 @@ export class WebAppShopComponent implements OnInit {
 
   filterProducts() {
     this.visibleProducts=this.products.filter(p=>p.name.toLowerCase().includes(this.nameInput.toLowerCase()));
+
+    //if(this.selectedCategory>=0)
+    {
+      //this.visibleProducts=this.visibleProducts.filter(p=>p.categoriesids.includes(this.selectedCategory));
+    }
     
     if (this.orderByPriceDesending){
       this.visibleProducts=this.visibleProducts.sort((p1,p2)=>p1.price>p2.price?1:-1);
