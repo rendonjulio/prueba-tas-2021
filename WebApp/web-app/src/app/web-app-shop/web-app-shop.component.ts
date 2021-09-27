@@ -45,6 +45,21 @@ export class WebAppShopComponent implements OnInit {
     this.filterProducts();
   }
 
+  onAddProduct(product:Product){
+    this.saveProductOnCart(product)
+  }
+
+  saveProductOnCart(product:Product){
+    let jsonContent:string|null = localStorage.getItem("cartProducts");
+    let products:Product[]=[];
+    if(jsonContent!=null){
+      products = JSON.parse(jsonContent);
+    }
+    products.push(product);
+    localStorage.setItem("cartProducts", JSON.stringify(products));
+    alert("The product "+product.name+" was added to the cart.");
+  }
+
   async loadDataFromServer(){
     this.categories = await this.wepAppService.getCategoriesFromServer();
     this.products = await this.wepAppService.getProductsFromServer();

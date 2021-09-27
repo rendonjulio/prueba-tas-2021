@@ -1,38 +1,49 @@
-<p>web-app-cart works!</p>
-<div class="spacer">
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-lg-9">
-          <div class="row ">
-            <table class="table ">
-              <tr>
-                <th class="b-0">Name</th>
-                <th class="b-0">Price</th>
-                <th class="b-0">Quantity</th>
-                <th class="b-0 text-right">Total Price</th>
-              </tr>
-              <tr >
-                <td></td>
-                <td></td>
-                <td>
-                  <button class="btn btn-primary btn-sm" >+</button>
-                  
-                  <button class="btn btn-primary btn-sm">-</button>
-                </td>
-                <td class="text-right">
-                  <h5 class="font-medium m-b-30"></h5>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="3" align="right">Subtotal :</td>
-                <td colspan="4" align="right">
-                  <button class="btn btn-danger" >Empty Cart</button>
-                </td>
-              </tr>
-            </table>
+
+<div class="row" >
+  <div class="col-md-3"></div>
+
+  <div class="col-md-6 web-app-cart row" style="padding-top: 10px; padding-bottom: 10px;" >
+    <div class="col-md-6" >
+      <h3>Web-App Cart</h3>
+    </div>
+
+    <div class="col-md-6 row" style="text-align: right;"></div>
+
+    <div class="col-md12" style="border-top: solid 1px black; border-bottom: solid 1px black; margin: 10px 0 10px 0px;">
+      <!---->
+      <div class="row" style=" margin: 10px 0 10px 0px; border-bottom: solid 1px lightgrey;" *ngFor="let p of products; index as i">
+
+        <div class="col-md-3" >
+          <img [src]="p.img" alt="" style="margin: 10px 0 10px 0px; max-width: 100%;">
+        </div>
+
+        <div class="col-md-9 row">
+
+          <div class="col-md-6 " style="height: auto;">{{p.name}}</div>
+          <div class="col-md-6" style="text-align: right; ">{{p.price}} $</div>
+
+          <div class="col-md-6 h-50">{{p.description}}</div>
+          <div class="col-md-6 h-50"></div>
+
+          <div class="col-md-9" style="text-align: right;"> 
+            <button type="button" class="btn btn-info" name="cartProducts_{{i}}" id="cartProducts_{{i}}" (click)="onRemoveProduct(i)"><i class="bi bi-trash"></i></button>
           </div>
+          <div class="col-md-3"></div>
         </div>
       </div>
+      <!---->
     </div>
+    
+    <div class="col-md-9">
+      Summe
+    </div>
+
+    <div class="col-md-3" style="text-align: right;">
+      {{totalPrice}} $
+    </div>
+
   </div>
 
+  <div class="col-md-3"></div>
+
+</div>
