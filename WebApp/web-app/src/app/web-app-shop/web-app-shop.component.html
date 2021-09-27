@@ -4,9 +4,9 @@
     <div class="col-md-3">
     </div>
 
-    <div class=" col-md-6 row">
+    <div class="container-fluid col-md-6 row">
 
-        <div class="web-app-filter col-md-12 row">
+        <div class="container-fluid  web-app-filter col-md-12 row">
             <div class="col-md-3">
                 Product
                 <input type="search" class="form-control me-2" (keyup)="onNameInput($event)" >
@@ -15,25 +15,26 @@
             <div class="col-md-3">
                 Order products  
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="webShopOrderBy" value="priceDesc" id="orderByPriceDesc" (change)="onOrderChange ($event)" >
-                    <label class="form-check-label" for="orderByPriceDesc">
-                      By price ascending.
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="webShopOrderBy" value="priceAsc" id="orderByPriceAsc" (change)="onOrderChange ($event)" >
+                    <input class="form-check-input" type="radio" name="webShopOrderBy" value="priceAsc" id="orderByPriceAsc" (change)="onOrderChange ($event)" checked>
                     <label class="form-check-label" for="orderByPriceAsc">
                         By price descending.
                     </label>
                 </div>
 
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="webShopOrderBy" value="priceDesc" id="orderByPriceDesc" (change)="onOrderChange ($event)"  >
+                    <label class="form-check-label" for="orderByPriceDesc">
+                      By price ascending.
+                    </label>
+                </div>
+
+               
             </div>
 
             <div class="col-md-3">
                 Categories
                 <div class="form-check" >
-                    <input class="form-check-input" type="radio" name="webShopCatgories" value="priceAsc" id="orderByPriceAsc" (change)="onCategoryChange ($event)" >
+                    <input class="form-check-input" type="radio" name="webShopCatgories" value="0" id="orderByPriceAsc" (change)="onCategoryChange ($event)" checked>
                     <label class="form-check-label" for="orderByPriceAsc">
                       All
                     </label>
@@ -47,20 +48,32 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-12">
-            
-            <h1>Products</h1>
-              <div *ngFor="let p of visibleProducts">
-                  
-                {{p.name}} {{p.price}}  
-              </div>
-        </div>
-
-    </div>
-    
-    <div class="col-md-3">
         
-    </div>
-
-</div>
+        <h1>Products</h1>
+        
+        <div class="container-fluid row ">
+            <div class="p-2 bg-light border">
+                <div class="container-fluid row d-flex d-grid gap-7">
+                    <div class="justify-content-md-center col-md-4" *ngFor="let p of visibleProducts">
+                        <div class=" b-9 card text-center " >
+                            <div class="card-header aling-items-center">
+                                {{p.name}} 
+                            </div>
+                            <img [src]="p.img" class="card-img-top">
+                            <div class="card-body">
+                                <p>{{p.description}}
+                                </p>
+                                <div >
+                                    <p>S/{{p.price}}</p>
+                                </div>
+                                <a class="btn btn-success" href="/">
+                                    <i class="bi bi-cart-plus">
+                                        Buy
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                

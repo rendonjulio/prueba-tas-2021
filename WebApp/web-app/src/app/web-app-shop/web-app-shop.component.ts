@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { RouterLinkWithHref } from '@angular/router';
 import { Category } from './Category';
 import { Product } from './Product';
 import { WepAppServiceService } from './wep-app-service.service';
@@ -9,7 +10,7 @@ import { WepAppServiceService } from './wep-app-service.service';
   styleUrls: ['./web-app-shop.component.scss']
 })
 export class WebAppShopComponent implements OnInit {
-
+  
   products: Product[]=[];
   visibleProducts: Product[]=[];
   selectedProduct:Product[]=[];
@@ -20,8 +21,7 @@ export class WebAppShopComponent implements OnInit {
   nameInput: string  = "";
   orderByPriceDesending: boolean=false;
   
-
-
+  
   constructor(private wepAppService:WepAppServiceService) { }
 
   async ngOnInit(){
@@ -53,7 +53,7 @@ export class WebAppShopComponent implements OnInit {
   filterProducts() {
     this.visibleProducts=this.products.filter(p=>p.name.toLowerCase().includes(this.nameInput.toLowerCase()));
 
-   if(this.selectedCategory>=0)
+   if(this.selectedCategory>0)
     {
       this.visibleProducts=this.visibleProducts.filter(p=>p.categories.includes(this.selectedCategory));
     }

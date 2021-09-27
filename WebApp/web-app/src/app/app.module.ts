@@ -8,6 +8,7 @@ import { WebAppFooterComponent } from './web-app-footer/web-app-footer.component
 import { WebAppShopComponent } from './web-app-shop/web-app-shop.component';
 import { WebAppCartComponent } from './web-app-cart/web-app-cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WebAppHomeComponent } from './web-app-home/web-app-home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     WebAppHeaderComponent,
     WebAppFooterComponent,
     WebAppShopComponent,
-    WebAppCartComponent
+    WebAppCartComponent,
+    WebAppHomeComponent
   ],
   imports: [
     BrowserModule,
