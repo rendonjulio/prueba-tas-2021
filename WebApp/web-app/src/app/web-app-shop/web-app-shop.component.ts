@@ -53,9 +53,9 @@ export class WebAppShopComponent implements OnInit {
   filterProducts() {
     this.visibleProducts=this.products.filter(p=>p.name.toLowerCase().includes(this.nameInput.toLowerCase()));
 
-    //if(this.selectedCategory>=0)
+   if(this.selectedCategory>=0)
     {
-      //this.visibleProducts=this.visibleProducts.filter(p=>p.categoriesids.includes(this.selectedCategory));
+      this.visibleProducts=this.visibleProducts.filter(p=>p.categories.includes(this.selectedCategory));
     }
     
     if (this.orderByPriceDesending){

@@ -4,7 +4,7 @@ export interface Product{
     price:number;
     available:boolean;
     best_seller:boolean;
-    categoriesids:number[];
+    categories:number[];
     img:string;
     description:string;
 }
